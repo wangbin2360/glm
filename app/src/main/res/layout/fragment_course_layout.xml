@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBEDF0"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_search_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:background="#E1E3E6"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="1dp">
+
+                <EditText
+                    android:id="@+id/ed_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:background="#ffffff"
+                    android:hint="请输入要搜索的内容"
+                    android:paddingLeft="12dp"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="32dp"
+                    android:layout_height="34dp"
+                    android:layout_alignParentRight="true"
+                    android:background="#ffffff"
+                    android:padding="6dp"
+                    android:src="@android:drawable/ic_search_category_default" />
+            </RelativeLayout>
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_news"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/reduce_fat"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/reduce_fat"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="减脂"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_notice"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/sculpture"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/sculpture" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="人鱼线雕刻"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_micro_book"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/moulding"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/moulding" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="塑形"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_class"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/stretch_relaxation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/stretch_relaxation" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="拉伸放松"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_courseware"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/main_fragment_courseware"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/reduce_fat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="最爱哑铃"
+                            android:textColor="@color/color_ffffff"
+                            android:textStyle="bold"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_train"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/main_fragment_train"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/reduce_fat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="学生专区"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_map"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/main_fragment_map"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/reduce_fat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="能量课程"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_book"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/main_fragment_book"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/reduce_fat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:text="胸肌"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_main_fragment_teacher"
+                        android:layout_width="0dp"
+                        android:layout_height="105dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/main_fragment_teacher"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/reduce_fat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="增肌"
+                            android:textStyle="bold"
+                            android:textColor="@color/color_ffffff"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
