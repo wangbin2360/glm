@@ -61,10 +61,110 @@
                 android:src="@drawable/ic_clear"
                 android:visibility="gone" />
         </LinearLayout>
-        <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="13dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_password_flag" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/hint_login_password"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:singleLine="true"
+                android:textColor="@color/color_999999"
+                android:textColorHint="@color/color_999999"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/clean_password"
+                android:layout_width="40dp"
+                android:layout_height="fill_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_clear"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_show_pwd"
+                android:layout_width="40dp"
+                android:layout_height="fill_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/pass_gone" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="13dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_password_flag" />
+
+            <EditText
+                android:id="@+id/et_password_again"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/hint_login_password_again"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:singleLine="true"
+                android:textColor="@color/color_999999"
+                android:textColorHint="@color/color_999999"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/clean_password_01"
+                android:layout_width="40dp"
+                android:layout_height="fill_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_clear"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_show_pwd_01"
+                android:layout_width="40dp"
+                android:layout_height="fill_parent"
+                android:scaleType="centerInside"
+                android:src="@drawable/pass_gone" />
+        </LinearLayout>
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/identifying_code"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/error_message"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:text="两次密码输入不一致"/>
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:enabled="false"

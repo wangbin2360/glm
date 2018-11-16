@@ -81,6 +81,7 @@ class LoginActivity: Activity() {
             }
         })
         btn_login.setOnClickListener({
+            var login_result : Boolean = false;
             if (mPhoneNum == null || mPassword==null){
                 Toast.makeText(this@LoginActivity,resources.getString(R.string.error_login1),Toast.LENGTH_SHORT).show()
             }else if(mPhoneNum!!.length<11){
@@ -91,7 +92,11 @@ class LoginActivity: Activity() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(object : Observer<ResponseBody>{
                             override fun onComplete() {
-                                startActivity<MainActivity>()
+                                if (login_result == true) {
+                                    startActivity<MainActivity>()
+                                }else{
+                                    Toast.makeText(this@LoginActivity,R.string.error_login3,Toast.LENGTH_SHORT).show()
+                                }
                             }
 
                             override fun onSubscribe(d: Disposable) {
@@ -100,7 +105,7 @@ class LoginActivity: Activity() {
                             }
 
                             override fun onNext(t: ResponseBody) {
-                                Toast.makeText(this@LoginActivity,"服务器返回："+t.string(),Toast.LENGTH_SHORT).show()
+                                login_result = t.string().toBoolean()
                             }
 
                             override fun onError(e: Throwable) {
@@ -124,4 +129,8 @@ class LoginActivity: Activity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable?.dispose()
+    }
 }

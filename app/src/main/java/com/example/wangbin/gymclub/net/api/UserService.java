@@ -13,7 +13,7 @@ public interface UserService {
     @FormUrlEncoded
     @POST("/login")
     Observable<ResponseBody> login(@Field("phonenum") String phoneNum, @Field("password") String password);
-//    @FormUrlEncoded
-//    @POST("/register")
-//    Observable<String> register(@Field("phonenum") String phoneNum,@Field("password") String password);
+    @FormUrlEncoded
+    @POST("/register")
+    Observable<ResponseBody> register(@Field("phonenum") String phoneNum,@Field("password") String password);
 }

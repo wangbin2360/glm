@@ -33,15 +33,15 @@ class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.navigation_home->{
-                main_view_pager.currentItem = 0
+                main_view_pager.setCurrentItem( 0,false)
                 return true
             }
             R.id.navigation_dashboard->{
-                main_view_pager.currentItem= 1
+                main_view_pager.setCurrentItem(1,false)
                 return true
             }
             R.id.navigation_my-> {
-                main_view_pager.currentItem = 2
+                main_view_pager.setCurrentItem(2,false)
                 return true
             }
         }
