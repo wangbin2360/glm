@@ -9,6 +9,10 @@
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_dashboard" />
+    <item
+        android:id="@+id/navigation_trainer"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="教练" />
 
     <item
         android:id="@+id/navigation_my"

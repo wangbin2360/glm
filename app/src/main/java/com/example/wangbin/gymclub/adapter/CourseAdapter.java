@@ -1,6 +1,7 @@
 package com.example.wangbin.gymclub.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,13 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.wangbin.gymclub.R;
+import com.example.wangbin.gymclub.VideoActivity;
 
 import java.util.List;
 
-public class Course1Adapter extends RecyclerView.Adapter<Course1Adapter.CourseHolder>{
+public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseHolder>{
     private Context context;
     private List<HolderItem> holderItems;
-    public Course1Adapter(Context context, List<HolderItem> holderItems){
+    public CourseAdapter(Context context, List<HolderItem> holderItems){
         this.context = context;
         this.holderItems = holderItems;
     }
@@ -37,7 +39,7 @@ public class Course1Adapter extends RecyclerView.Adapter<Course1Adapter.CourseHo
         return holderItems.size();
     }
 
-    class CourseHolder extends RecyclerView.ViewHolder{
+    class CourseHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView textView;
         private ImageView imageView;
 
@@ -45,11 +47,18 @@ public class Course1Adapter extends RecyclerView.Adapter<Course1Adapter.CourseHo
             super(itemView);
             textView = itemView.findViewById(R.id.tv_course);
             imageView = itemView.findViewById(R.id.img_course);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(HolderItem holderItem){
             textView.setText(holderItem.text);
             imageView.setImageResource(holderItem.img_id);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(context, VideoActivity.class);
+            context.startActivity(i);
         }
     }
     public static class HolderItem{
