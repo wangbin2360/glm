@@ -81,40 +81,41 @@ class LoginActivity: Activity() {
             }
         })
         btn_login.setOnClickListener({
-            var login_result : Boolean = false;
-            if (mPhoneNum == null || mPassword==null){
-                Toast.makeText(this@LoginActivity,resources.getString(R.string.error_login1),Toast.LENGTH_SHORT).show()
-            }else if(mPhoneNum!!.length<11){
-                Toast.makeText(this@LoginActivity,resources.getString(R.string.error_login2),Toast.LENGTH_SHORT).show()
-            }else {
-                RetrofitUtils.login(mPhoneNum, mPassword)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(object : Observer<ResponseBody>{
-                            override fun onComplete() {
-                                if (login_result == true) {
-                                    startActivity<MainActivity>()
-                                }else{
-                                    Toast.makeText(this@LoginActivity,R.string.error_login3,Toast.LENGTH_SHORT).show()
-                                }
-                            }
-
-                            override fun onSubscribe(d: Disposable) {
-                                disposable = d
-                                compositeDisposable?.add(disposable!!)
-                            }
-
-                            override fun onNext(t: ResponseBody) {
-                                login_result = t.string().toBoolean()
-                            }
-
-                            override fun onError(e: Throwable) {
-                                Toast.makeText(this@LoginActivity,e.message,Toast.LENGTH_SHORT).show()
-                                e.printStackTrace()
-                            }
-
-                        })
-            }
+            startActivity<MainActivity>()
+//            var login_result : Boolean = false;
+//            if (mPhoneNum == null || mPassword==null){
+//                Toast.makeText(this@LoginActivity,resources.getString(R.string.error_login1),Toast.LENGTH_SHORT).show()
+//            }else if(mPhoneNum!!.length<11){
+//                Toast.makeText(this@LoginActivity,resources.getString(R.string.error_login2),Toast.LENGTH_SHORT).show()
+//            }else {
+//                RetrofitUtils.login(mPhoneNum, mPassword)
+//                        .subscribeOn(Schedulers.io())
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .subscribe(object : Observer<ResponseBody>{
+//                            override fun onComplete() {
+//                                if (login_result == true) {
+//                                    startActivity<MainActivity>()
+//                                }else{
+//                                    Toast.makeText(this@LoginActivity,R.string.error_login3,Toast.LENGTH_SHORT).show()
+//                                }
+//                            }
+//
+//                            override fun onSubscribe(d: Disposable) {
+//                                disposable = d
+//                                compositeDisposable?.add(disposable!!)
+//                            }
+//
+//                            override fun onNext(t: ResponseBody) {
+//                                login_result = t.string().toBoolean()
+//                            }
+//
+//                            override fun onError(e: Throwable) {
+//                                Toast.makeText(this@LoginActivity,e.message,Toast.LENGTH_SHORT).show()
+//                                e.printStackTrace()
+//                            }
+//
+//                        })
+//            }
         })
         register.setOnClickListener({
             startActivity<RegisterActivity>()

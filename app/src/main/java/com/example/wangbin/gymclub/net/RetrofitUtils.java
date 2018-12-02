@@ -13,7 +13,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUtils {
-    private static final String BASE_URL = "http://172.27.141.31:8110/";
+    private static final String BASE_URL = "http://192.168.31.205:8110/";
     private static volatile Retrofit RETROFIT_INSTANCE = null;
     public static Retrofit getRetrofit(){
         if(RETROFIT_INSTANCE == null) {

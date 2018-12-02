@@ -17,4 +17,9 @@
     <string name="error_login3">手机号或者密码有误</string>
     <string name="error_register">该手机号已注册</string>
     <string name="error_register1">两次密码输入不一致</string>
+    <string name="title_teacher">教练</string>
+    <string name="teacher_name_title">  教练名：</string>
+    <string name="teacher_course_title">主教课程：</string>
+    <string name="teacher_phone">联系电话：</string>
+    <string name="teacher_email">邮箱地址：</string>
 </resources>

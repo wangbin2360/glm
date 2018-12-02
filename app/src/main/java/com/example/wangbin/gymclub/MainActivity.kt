@@ -14,6 +14,7 @@ import com.example.wangbin.gymclub.adapter.MainFragmentAdapter
 import com.example.wangbin.gymclub.fragment.CourseFragment
 import com.example.wangbin.gymclub.fragment.HomeFragment
 import com.example.wangbin.gymclub.fragment.MyFragment
+import com.example.wangbin.gymclub.fragment.TrainerFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSelectedListener,
@@ -44,6 +45,10 @@ class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
                 main_view_pager.setCurrentItem(2,false)
                 return true
             }
+            R.id.navigation_trainer->{
+                main_view_pager.setCurrentItem(3,false)
+                return true
+            }
         }
         return false
     }
@@ -59,11 +64,13 @@ class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        this.supportActionBar?.hide()
         main_navigation.setOnNavigationItemSelectedListener (this)
         var fragmentList:MutableList<Fragment> = ArrayList<Fragment>()
         fragmentList.add(newInstance<HomeFragment>())
         fragmentList.add(newInstance<CourseFragment>())
         fragmentList.add(newInstance<MyFragment>())
+        fragmentList.add(newInstance<TrainerFragment>())
         main_view_pager.adapter = MainFragmentAdapter(supportFragmentManager,this,fragmentList)
         main_view_pager.addOnPageChangeListener(this)
     }
