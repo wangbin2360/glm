@@ -1,12 +1,12 @@
 package com.example.wangbin.gymclub;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
@@ -19,16 +19,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TeacherActivity extends Activity {
+
+import com.example.wangbin.gymclub.model.Teacher;
+import com.example.wangbin.gymclub.net.HttpCallbackListener;
+import com.example.wangbin.gymclub.net.HttpSettings;
+import com.example.wangbin.gymclub.net.HttpUtil;
+import com.example.wangbin.gymclub.service.TrainerService;
+
+import org.json.JSONObject;
+
+public class TeacherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
         Intent intent = getIntent();
-        String name= intent.getStringExtra("name");
-        int img=intent.getIntExtra("img",0);
-        int id=intent.getIntExtra("id",0);
+        final String name= intent.getStringExtra("name");
+        String mode= intent.getStringExtra("mode");
+        int img=intent.getIntExtra("imageid",0);
+        final int id=intent.getIntExtra("id",0);
         ImageButton imageButton= (ImageButton) findViewById(R.id.teacher_Return_Button);
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,18 +48,81 @@ public class TeacherActivity extends Activity {
         });
         ImageView imageView=(ImageView)findViewById(R.id.teacher_image);
         imageView.setImageResource(img);
-        TextView textView=(TextView)findViewById(R.id.teacherName);
+        final TextView textView=(TextView)findViewById(R.id.teacherName);
         textView.setText(name);
 
-        TextView textView1=(TextView)findViewById(R.id.teacherPhone);
-        TextView textView2=(TextView)findViewById(R.id.teacherEmail);
+        final TextView textView1=(TextView)findViewById(R.id.teacherPhone);
+        final TextView textView2=(TextView)findViewById(R.id.teacherEmail);
+        final TextView textView5=(TextView)findViewById(R.id.teacherCourse);
+        final TextView textView6=(TextView)findViewById(R.id.teacherHistory);
+
+        if(mode.equals("net")) {
+
+            HttpUtil.sendHttpGetRequestOfNone(HttpSettings.httpUrl + HttpSettings.trainerUrl + "/" + id, new HttpCallbackListener() {
+                @Override
+                public void onFinish(String response) {
+                    try {
+
+                        JSONObject res = new JSONObject(response);
+                        String result = res.getString("result");
+                        if (result.equals("true")) {
+                            final String context = res.getString("context");
+                            final String phone = res.getString("phone");
+                            final String email = res.getString("email");
+                            final String type = res.getString("type");
+                            String intro = res.getString("intro");
+                            TrainerService cs = new TrainerService(TeacherActivity.this);
+                            cs.save(id, name, phone, email, context,type,intro);
 
 
+                            TeacherActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    textView5.setText(type);
+                                    textView6.setText(context);
+                                    setUI(textView1,textView2,phone,email);
+                                }
+                            });
+                        }
+                    } catch (Exception e) {
+                        Toast toast = Toast.makeText(TeacherActivity.this, "获取失败,请检查网络", Toast.LENGTH_SHORT);
+                    }
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    Looper.prepare();
+                    Toast toast = Toast.makeText(TeacherActivity.this, "获取失败,请检查网络", Toast.LENGTH_SHORT);
+                    toast.show();
+                    Looper.loop();
+                }
+            });
+        }
+        else{
+            TrainerService cs = new TrainerService(TeacherActivity.this);
+            final Teacher teacher=cs.findById(id);
+            this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    textView5.setText(teacher.getType());
+                    textView6.setText(teacher.getContext());
+                    setUI(textView1,textView2,teacher.getPhone(),teacher.getEmail());
+                }
+            });
+
+
+        }
+
+
+    }
+    private void setUI(TextView textView1,TextView textView2,String phone,String email){
         final SpannableStringBuilder style= new SpannableStringBuilder();
         final SpannableStringBuilder style2= new SpannableStringBuilder();
         //设置文字
-        style.append("18401605989");
-        style2.append("14301087@bjtu.edu.cn");
+        style.append(phone);
+        style2.append(email);
         //设置部分文字点击事件
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override

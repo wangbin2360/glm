@@ -3,4 +3,6 @@
     <dimen name="drawable_width">120dp</dimen>
     <dimen name="drawable_height">40dp</dimen>
     <dimen name="text_size1">18sp</dimen>
+    <dimen name="activity_horizontal_margin">12dp</dimen>
+    <dimen name="activity_vertical_margin">12dp</dimen>
 </resources>

@@ -8,19 +8,19 @@ import android.view.ViewGroup;
 
 
 import com.example.wangbin.gymclub.R;
-import com.example.wangbin.gymclub.model.Teacher;
+import com.example.wangbin.gymclub.model.ArticleItem;
 
 import java.util.ArrayList;
 
-public class TeacherAdapter extends RecyclerView.Adapter<MyViewHolder> implements View.OnClickListener{
+public class ArticleItemAdapter extends RecyclerView.Adapter<MyViewHolder> implements View.OnClickListener {
     private Context mContext;
-    ArrayList<Teacher> mlist;
+    ArrayList<ArticleItem> mlist;
     private RecyclerViewOnItemClickListener mClickListener;
 
 
-    public TeacherAdapter(Context context, ArrayList<Teacher> list) {
+    public ArticleItemAdapter(Context context, ArrayList<ArticleItem> list) {
         this.mContext = context;
-        this.mlist=list;
+        this.mlist = list;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<MyViewHolder> implement
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int arg1) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.course_item, parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.course_item, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
         view.setOnClickListener(this);
         return holder;
@@ -42,9 +42,9 @@ public class TeacherAdapter extends RecyclerView.Adapter<MyViewHolder> implement
 
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int position) {
-        myViewHolder.tv1.setText((String)mlist.get(position).getName());
-        myViewHolder.tv2.setText((String)mlist.get(position).getIntroduce());
-        myViewHolder.iv.setImageResource((int)mlist.get(position).getImageId());
+        myViewHolder.tv1.setText((String) mlist.get(position).getTitle());
+        myViewHolder.tv2.setText((String) mlist.get(position).getTime());
+        myViewHolder.iv.setImageResource((int) mlist.get(position).getImageid());
         myViewHolder.root.setTag(position);
         /*
         if (mClickListener != null) {
@@ -57,6 +57,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         }
         */
     }
+
     @Override
     public void onClick(View v) {
         if (mClickListener != null) {
@@ -65,4 +66,6 @@ public class TeacherAdapter extends RecyclerView.Adapter<MyViewHolder> implement
         }
 
     }
+
+
 }

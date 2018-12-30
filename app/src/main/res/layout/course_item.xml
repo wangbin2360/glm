@@ -1,35 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app = "http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rl_main_fragment_news"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/course"
+    android:descendantFocusability="blocksDescendants"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
-    <android.support.v7.widget.CardView
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    app:cardElevation="10dp"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="5dp">
+        android:layout_height="100dp"
+        android:clickable="false"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        >
 
-    <ImageView
-        android:id="@+id/img_course"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/reduce_fat"
-        android:scaleType="fitXY"/>
+        <ImageView
+            android:id="@id/image1"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:scaleType="centerCrop"
+            android:clickable="false"
+           />
 
-    <TextView
-        android:id="@+id/tv_course"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="减脂"
-        android:textColor="@color/color_ffffff"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-    </android.support.v7.widget.CardView>
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:clickable="false">
+
+            <TextView
+                android:id="@+id/c_item1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="这里是CardView"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:clickable="false"
+                />
+
+            <TextView
+                android:id="@+id/c_item2"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="false"
+                android:text="炫酷的效果嗨起来"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+

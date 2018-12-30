@@ -1,6 +1,5 @@
 package com.example.wangbin.gymclub;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,13 +12,17 @@ import android.widget.VideoView;
 
 import com.danikula.videocache.HttpProxyCacheServer;
 
-public class VideoActivity extends Activity {
+public class VideoActivity extends AppCompatActivity {
     VideoView videoView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
-        String url="http://39.107.73.232:8080/video/download?name=1.mkv";
+        Intent intent = getIntent();
+        String title= intent.getStringExtra("title");
+        String url=intent.getStringExtra("url");
+        Uri uri = Uri.parse( url );
+
         ImageButton imageButton= (ImageButton) findViewById(R.id.videoRetuenButton);
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,8 +30,9 @@ public class VideoActivity extends Activity {
                 finish();
             }
         });
+
         TextView textView=(TextView)findViewById(R.id.videoTitle);
-        textView.setText("锻炼");
+        textView.setText(title);
         videoView = (VideoView)this.findViewById(R.id.videoView );
         //设置视频控制器
         HttpProxyCacheServer proxy = App.getProxy(this);
